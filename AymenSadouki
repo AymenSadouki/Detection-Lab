@@ -1,0 +1,56 @@
+# Smartphone Recommendation Web Application
+
+## Objective
+Developed a secure PHP/JavaScript web application to recommend smartphones while implementing cybersecurity best practices. The project focused on building defense-in-depth protections against common web vulnerabilities without using databases, demonstrating file-based security through JSON storage and client/server validation chains.
+
+## Security Features Implemented
+
+### Core Protections
+- **Authentication System**: SHA-256 client-side hashing + server-side validation
+- **Input Sanitization**: Dual-layer (client + server) validation for all forms
+- **Data Protection**: 
+  - JSON storage with `chmod 600` permissions
+  - Atomic file writes with locking mechanisms
+- **Session Security**: 
+  - Session regeneration on login
+  - Cookie hardening (HttpOnly, Secure flags)
+
+### Skills Demonstrated
+- **Secure PHP Development**: Prevention of XSS, injection attacks
+- **JavaScript Security**: Safe DOM manipulation, hash preprocessing
+- **File-Based Security**: JSON sanitization, integrity checks
+- **OWASP Compliance**: Implemented Top 10 mitigations
+- **Responsive Design**: Mobile-first secure UI development
+
+## Technical Stack
+
+### Frontend
+- Bootstrap 5 (Responsive layout)
+- JavaScript (Form validation, hashing)
+- jQuery (AJAX requests)
+
+### Backend
+- PHP 8.2 (Business logic)
+- JSON (Data storage)
+- Apache (UniServerZ)
+
+### Security Tools
+- OWASP ZAP (Vulnerability testing)
+- Browser DevTools (Header analysis)
+- JSONLint (Data validation)
+
+## Implementation Highlights
+
+### 1. Secure User Registration Flow
+![Registration Sequence](imgsrc_registration.png)
+*Client-side password hashing before transmission to prevent plaintext exposure*
+
+### 2. Protected Review Submission
+```php
+// Server-side review processing
+$clean_input = [
+    'rating' => (int)$_POST['rating'],
+    'comment' => htmlspecialchars($_POST['comment'], ENT_QUOTES),
+    'user' => $_SESSION['verified_user']
+];
+file_put_contents('reviews.json', json_encode($clean_input, JSON_PRETTY_PRINT));
