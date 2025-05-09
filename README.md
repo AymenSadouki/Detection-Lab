@@ -1,31 +1,33 @@
-# PROJECTNAME
+# Smartphone Recommendation Web Application
 
 ## Objective
-[Brief Objective - Remove this afterwards]
+Developed a dynamic PHP/JavaScript web application for smartphone recommendations using file-based JSON storage, implementing responsive design and client-server functionality as required by the 4222COMP coursework specifications.
 
-The Detection Lab project aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a Security Information and Event Management (SIEM) system, generating test telemetry to mimic real-world attack scenarios. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
+## Core Features Implemented
 
-### Skills Learned
-[Bullet Points - Remove this afterwards]
+### Frontend Components
+- **Home Page**: Displayed smartphone summaries from `smartphones.json`
+- **Product Pages**: Dynamic rendering using `smartphone.php`
+- **Ranking System**: Sortable table with Bootstrap styling
+- **User Reviews**: Form submission to `reviews.json`
 
-- Advanced understanding of SIEM concepts and practical application.
-- Proficiency in analyzing and interpreting network logs.
-- Ability to generate and recognize attack signatures and patterns.
-- Enhanced knowledge of network protocols and security vulnerabilities.
-- Development of critical thinking and problem-solving skills in cybersecurity.
+### Backend Functionality
+- **Data Management**:
+  ```php
+  // Load smartphone data
+  $phones = json_decode(file_get_contents('data/smartphones.json'), true);
+  ### Technical Implementation
+ - **Frontend**:
 
-### Tools Used
-[Bullet Points - Remove this afterwards]
+Bootstrap 5 (Grid layout, components)
 
-- Security Information and Event Management (SIEM) system for log ingestion and analysis.
-- Network analysis tools (such as Wireshark) for capturing and examining network traffic.
-- Telemetry generation tools to create realistic network traffic and attack scenarios.
+JavaScript (Form validation, dynamic content)
 
-## Steps
-drag & drop screenshots here or use imgur and reference them using imgsrc
+jQuery (DOM manipulation, AJAX)
 
-Every screenshot should have some text explaining what the screenshot is about.
+- **Backend**:
+PHP 8.2 (Data processing)
 
-Example below.
+JSON (Data storage in 3 files)
 
-*Ref 1: Network Diagram*
+Apache (UniServerZ deployment)
